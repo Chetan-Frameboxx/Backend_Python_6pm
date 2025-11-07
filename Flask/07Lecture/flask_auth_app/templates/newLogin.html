@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="materialContainer">
+
+  <!-- LOGIN BOX -->
+  <div class="box" id="loginBox">
+    <div class="title">LOGIN</div>
+    <form method="POST">
+      {{ login_form.hidden_tag() }}
+      <div class="input">
+        {{ login_form.username.label }}
+        {{ login_form.username(class="form-control") }}
+      </div>
+      <div class="input">
+        {{ login_form.password.label }}
+        {{ login_form.password(class="form-control") }}
+      </div>
+      <div class="button login">
+        {{ login_form.submit(class="btn btn-primary") }}
+      </div>
+    </form>
+    <p>New user? <a href="#" id="showRegister">Register here</a></p>
+  </div>
+
+  <!-- REGISTER BOX -->
+  <div class="box" id="registerBox" style="display:none;">
+    <div class="title">REGISTER</div>
+    <form method="POST">
+      {{ register_form.hidden_tag() }}
+      <div class="input">
+        {{ register_form.username.label }}
+        {{ register_form.username(class="form-control") }}
+      </div>
+      <div class="input">
+        {{ register_form.password.label }}
+        {{ register_form.password(class="form-control") }}
+      </div>
+      <div class="input">
+        {{ register_form.confirm.label }}
+        {{ register_form.confirm(class="form-control") }}
+      </div>
+      <div class="button">
+        {{ register_form.submit(class="btn btn-success") }}
+      </div>
+    </form>
+    <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+  </div>
+
+</div>
+
+<script>
+document.getElementById('showRegister').addEventListener('click', function() {
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('registerBox').style.display = 'block';
+});
+
+document.getElementById('showLogin').addEventListener('click', function() {
+  document.getElementById('registerBox').style.display = 'none';
+  document.getElementById('loginBox').style.display = 'block';
+});
+</script>
+{% endblock %}
