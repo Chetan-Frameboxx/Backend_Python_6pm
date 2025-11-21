@@ -16,7 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from namasteframeboxx import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home),
+    path('about/', views.about),
+    path('team/', views.team),
+    # path('team/<int:teamid>', views.teamDetails),
+    # path('team/<str:teamid>', views.teamDetails),
+    # path('team/<slug:teamid>', views.teamDetails),
+    path('team/<teamid>', views.teamDetails),
 ]
+
+# int
+# str
+# slug
