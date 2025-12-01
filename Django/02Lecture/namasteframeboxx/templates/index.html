@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>{{title}}</title>
 
     <!-- InternalCSS  -->
 
@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            text-align: center;
         }
         body{
             background-color: violet;
@@ -36,6 +37,10 @@
         li{
             list-style-type: none;
         }
+        .center{
+            width: 80%;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -46,6 +51,48 @@
             <li><a href="team/">Team</a></li>
         </ul>
     </nav>
-    <h1>Welcome Home Page</h1>
+    <hr>
+    <div class="center">
+
+        <h1>{{greeting}}</h1>
+        <hr>
+        <ol>
+            {% for n in course_list %}
+            <li>{{n}}</li>
+            {% endfor %}
+        </ol>
+
+
+        <hr>
+        <table border="1" style="width: 50%; margin: 0 auto;">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+            </tr>
+
+
+        {% for d in students_details %}
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.phone}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+
+        <hr>
+        <!-- Consitional  -->
+
+        {% for n in numbers %}
+            {% if n > 30 %}
+                <div>{{n}}</div>
+            {% endif %}
+        {% endfor %}
+    </div>
 </body>
 </html>
+
+
+
+
+<!-- https://docs.djangoproject.com/en/5.2/topics/templates/ -->
