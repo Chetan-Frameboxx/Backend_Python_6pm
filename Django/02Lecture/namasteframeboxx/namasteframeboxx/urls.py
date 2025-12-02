@@ -21,6 +21,10 @@ from namasteframeboxx import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
+    path('ticket/', views.ticket),
+    
+    
+    
     path('about/', views.about),
     path('team/', views.team),
     # path('team/<int:teamid>', views.teamDetails),
