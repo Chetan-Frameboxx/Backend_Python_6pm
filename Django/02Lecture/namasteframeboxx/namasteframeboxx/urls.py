@@ -24,12 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
     path('ticket/', views.ticket),
-    
-    
     path('userform/', views.userForm),
-    
     path('contact/', views.contact),
-    
     path('about/', views.about),
     path('team/', views.team),
     # path('team/<int:teamid>', views.teamDetails),
@@ -38,8 +34,8 @@ urlpatterns = [
     path('team/<teamid>', views.teamDetails),
     
     
-    # IMPORTANT: include accounts app URLs
-    path('', include('accounts.urls')),
+    # Accounts app URLs
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

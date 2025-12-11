@@ -1,0 +1,12 @@
+{% extends "accounts/base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="card mx-auto mt-5" style="max-width: 600px;">
+  <div class="card-body text-center">
+    <h2 class="card-title mb-4">Admin Dashboard</h2>
+    <p>Welcome, {{ request.user.username }}. Only admins can see this page.</p>
+    <p>Here you can add your admin functionalities later.</p>
+  </div>
+</div>
+{% endblock %}

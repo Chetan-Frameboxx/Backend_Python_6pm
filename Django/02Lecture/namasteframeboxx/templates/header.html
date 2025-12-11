@@ -64,7 +64,7 @@ https://templatemo.com/tm-583-festava-live
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="/#section_1">Home</a>
@@ -92,6 +92,50 @@ https://templatemo.com/tm-583-festava-live
                     </ul>
 
                     <a href="ticket" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
-                </div>
+                </div> -->
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="/#section_1">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="/#section_2">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="/#section_3">Artists</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="/#section_4">Schedule</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="/#section_5">Pricing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="contact">Contact</a>
+        </li>
+    </ul>
+
+    <!-- Account Links -->
+    <ul class="navbar-nav ms-auto">
+        {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+        {% endif %}
+    </ul>
+
+    <a href="ticket" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+</div>
             </div>
         </nav>
