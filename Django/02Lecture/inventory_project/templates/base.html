@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <h1>Product Inventory Management</h1>
+
+    <nav>
+      {% if user.is_authenticated %}
+      <span>Welcome, {{ user.username }}!</span>
+      <form method="post" action="{% url 'logout' %}" style="display: inline">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'signup' %}">Sign Up</a>
+      {% endif %}
+    </nav>
+
+    <hr />
+
+    {% block content %}{% endblock %}
+  </body>
+</html>

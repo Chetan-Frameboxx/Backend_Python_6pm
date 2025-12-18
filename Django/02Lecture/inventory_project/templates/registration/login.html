@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+
+{% if next %}
+<p>Please login to continue</p>
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    <button type="submit">Login</button>
+</form>
+
+<p>
+    New user?
+    <a href="{% url 'signup' %}">Create an account</a>
+</p>
+{% endblock %}

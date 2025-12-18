@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>
+    {% if object %}
+        Update Product
+    {% else %}
+        Add Product
+    {% endif %}
+</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+        {% if object %}Update{% else %}Create{% endif %}
+    </button>
+</form>
+
+<a href="{% url 'product_list' %}">Back to Products</a>
+{% endblock %}
